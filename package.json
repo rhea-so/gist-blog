@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "build": "tsc && node dist/index.js"
+  },
+  "dependencies": {
+    "html-minifier": "4.0.0",
+    "octokit": "4.0.2",
+    "showdown": "2.1.0",
+    "typescript": "5.6.3"
+  },
+  "devDependencies": {
+    "@octokit/openapi-types": "22.2.0",
+    "@types/html-minifier": "4.0.5",
+    "@types/node": "22.8.1",
+    "@types/showdown": "2.0.6"
+  }
+}
