@@ -49,7 +49,7 @@ export async function findAllGist(
     await Promise.all(
       details.map(async (detail) => {
         const response = await octokit.request(
-          "GET /gists/{gist_id}/comments",
+          "GET /gists/{gist_id}/comments?per_page=100&page=1",
           {
             gist_id: detail.id,
             headers: {
