@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 0 * * *" # created by https://crontab.cronhub.io
+    - cron: "0 * * * *" # created by https://crontab.cronhub.io
   workflow_dispatch:
 
 jobs:
@@ -38,6 +38,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - run: HOSTNAME=${{ secrets.HOSTNAME }} GITHUB_PERSONAL_ACCESS_TOKEN=${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }} npm run build
+      - run: HOSTNAME=blog.yuru.cam GITHUB_PERSONAL_ACCESS_TOKEN=${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }} npm run build
 
-      # Upload build directory to the server by your self
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy build --project-name=blog
