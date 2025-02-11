@@ -23,3 +23,5 @@ cd build && python3 -m http.server
 ### 5. Publish
 
 zip build folder and upload
+
+> recommend to use github action
