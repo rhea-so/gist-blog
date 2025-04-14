@@ -1,0 +1,10 @@
+{
+  "title": "느긋한 호흡",
+  "description": "한 아저씨의 술과 음악, 사진, 캠핑, 여행, 그리고 소소한 개발 이야기를 기록하는 곳",
+  "username": "rhea-so",
+  "url": "https://blog.yuru.cam",
+  "outputDir": "./output",
+  "templatesDir": "./templates",
+  "staticDir": "./static",
+  "postsPerPage": 15
+}

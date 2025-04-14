@@ -38,11 +38,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - run: HOSTNAME=blog.yuru.cam GITHUB_PERSONAL_ACCESS_TOKEN=${{ secrets.PERSONAL_ACCESS_TOKEN }} npm run build
+      - run: node make.js
+        env:
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy build --project-name=blog
+          command: pages deploy output --project-name=blog

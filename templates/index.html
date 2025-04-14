@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{config.title}}</title>
+  <meta name="description" content="{{config.description}}">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml">
+</head>
+
+<body>
+  <div class="cafe-container">
+    <header>
+      <h1><a href="/">{{config.title}}</a></h1>
+      <p class="subtitle"><a href="/">{{config.description}}</a></p>
+    </header>
+
+    <main>
+      <div class="search-box">
+        <form id="searchForm" onsubmit="return false;">
+          <input type="text" id="searchInput" placeholder="게시글 검색...">
+          <button type="button" id="searchButton">검색</button>
+        </form>
+      </div>
+
+      <div class="board-list">
+        <div class="board-header">
+          <div class="num">번호</div>
+          <div class="subject">제목</div>
+          <div class="date">작성일</div>
+        </div>
+
+        <div class="board-content">
+          {{#posts}}
+          <div class="board-row">
+            <div class="num">{{postNumber}}</div>
+            <div class="subject">
+              <a href="{{url}}">{{title}}</a>
+              {{#isNew}}<span class="new-badge">N</span>{{/isNew}}
+            </div>
+            <div class="date">{{formattedDate}}</div>
+          </div>
+          {{/posts}}
+        </div>
+      </div>
+
+      <nav class="pagination">
+        {{#pagination.hasPrev}}
+        <a href="{{pagination.prevPage}}" class="prev">이전 페이지</a>
+        {{/pagination.hasPrev}}
+
+        <span class="current">{{pagination.current}} / {{pagination.total}}</span>
+
+        {{#pagination.hasNext}}
+        <a href="{{pagination.nextPage}}" class="next">다음 페이지</a>
+        {{/pagination.hasNext}}
+      </nav>
+
+      <div class="board-buttons">
+        <a href="https://gist.github.com/" class="write-btn" target="_blank">글쓰기</a>
+      </div>
+    </main>
+
+    <footer>
+      <div class="copyright">
+        <p>© <a href="{{config.github_profile}}" target="_blank">{{config.username}}</a> - <a
+            href="/">{{config.title}}</a></p>
+        <p><a href="/rss.xml">RSS</a> | <a href="/atom.xml">Atom</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 검색 기능
+      const searchInput = document.getElementById('searchInput');
+      const searchButton = document.getElementById('searchButton');
+      const boardRows = document.querySelectorAll('.board-row');
+
+      function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase();
+        if (!searchTerm) {
+          // 검색어가 없으면 모든 게시글 표시
+          boardRows.forEach(row => {
+            row.classList.remove('hidden');
+          });
+          return;
+        }
+
+        // 검색어가 있으면 제목에 검색어가 포함된 게시글만 표시
+        boardRows.forEach(row => {
+          const title = row.querySelector('.subject a').textContent.toLowerCase();
+          if (title.includes(searchTerm)) {
+            row.classList.remove('hidden');
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+      }
+
+      searchButton.addEventListener('click', performSearch);
+      searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          performSearch();
+        }
+      });
+
+      // 현재 페이지 URL을 세션 스토리지에 저장
+      const currentPage = window.location.pathname;
+      sessionStorage.setItem('lastListPage', currentPage);
+
+      // 게시글 링크 클릭 이벤트 수정
+      document.querySelectorAll('.subject a').forEach(link => {
+        link.addEventListener('click', function () {
+          sessionStorage.setItem('lastListPage', currentPage);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

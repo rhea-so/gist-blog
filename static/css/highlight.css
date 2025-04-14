@@ -1,0 +1,74 @@
+/* 코드 하이라이팅 스타일 (2005년 네이버 카페 스타일) */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #000;
+  font-size: 12px;
+  line-height: 1.4;
+  font-family: 'Courier New', monospace;
+}
+
+/* 키워드 */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-tag,
+.hljs-name {
+  color: #0000aa;
+  font-weight: bold;
+}
+
+/* 주석 */
+.hljs-comment,
+.hljs-meta,
+.hljs-quote {
+  color: #008800;
+}
+
+/* 문자열 */
+.hljs-string,
+.hljs-regexp,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #880000;
+}
+
+/* 숫자, 리터럴 */
+.hljs-number,
+.hljs-deletion,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link {
+  color: #aa0000;
+}
+
+/* 함수, 메서드 이름 */
+.hljs-function,
+.hljs-built_in {
+  color: #0000aa;
+}
+
+/* 속성 이름 */
+.hljs-title,
+.hljs-section,
+.hljs-attribute {
+  color: #000088;
+}
+
+/* 클래스 이름 */
+.hljs-title.class_ {
+  color: #880000;
+  font-weight: bold;
+}
+
+/* 중요 강조 */
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+/* 2005년 네이버 카페 스타일에서는 다크 모드가 없었으므로 제거 */

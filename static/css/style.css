@@ -1,0 +1,738 @@
+/* 2005년 네이버 카페 스타일 게시판 테마 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Dotum', '돋움', 'Arial', sans-serif;
+  font-size: 12px;
+  color: #333;
+  background-color: #f0f0f0;
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+}
+
+a {
+  color: #004790;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 전체 레이아웃 */
+.cafe-container {
+  width: 780px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
+  padding: 10px;
+}
+
+/* 헤더 */
+header {
+  padding: 15px 10px;
+  background-color: #eef5ff;
+  border: 1px solid #b7c9e3;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Gulim', '굴림', sans-serif;
+  font-size: 18px;
+  color: #004790;
+  margin-bottom: 5px;
+  letter-spacing: -1px;
+}
+
+header h1 a {
+  color: #004790;
+}
+
+header .subtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+/* 메인 콘텐츠 */
+main {
+  clear: both;
+  padding: 0 5px;
+}
+
+/* 게시판 목록 스타일 */
+.board-list {
+  width: 100%;
+  border-top: 2px solid #7ba7ea;
+  border-bottom: 2px solid #7ba7ea;
+  margin-bottom: 10px;
+}
+
+.board-header {
+  display: flex;
+  background-color: #eef5ff;
+  border-bottom: 1px solid #b7c9e3;
+  font-weight: bold;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.board-content {
+  border-top: 1px solid #e5e5e5;
+}
+
+.board-row {
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+  height: 28px;
+  line-height: 28px;
+}
+
+.board-row:hover {
+  background-color: #f8f8f8;
+}
+
+/* 칼럼 너비 설정 */
+.num {
+  width: 50px;
+  text-align: center;
+  font-family: 'Tahoma', sans-serif;
+}
+
+.subject {
+  flex-grow: 1;
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.writer {
+  width: 90px;
+  text-align: center;
+}
+
+.date {
+  width: 80px;
+  text-align: center;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #666;
+}
+
+.view-count {
+  width: 50px;
+  text-align: center;
+  font-family: 'Tahoma', sans-serif;
+  color: #666;
+}
+
+/* 새 글 표시 */
+.new-badge {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #ff6600;
+  color: white;
+  font-size: 9px;
+  line-height: 12px;
+  text-align: center;
+  border-radius: 2px;
+  margin-left: 3px;
+  font-weight: bold;
+}
+
+/* 페이지네이션 */
+.pagination {
+  height: 30px;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.pagination a, .pagination .current {
+  display: inline-block;
+  padding: 0 8px;
+  height: 21px;
+  line-height: 21px;
+  border: 1px solid #ccc;
+  margin: 0 2px;
+  background: #f9f9f9;
+  color: #555;
+}
+
+.pagination a:hover {
+  border-color: #7ba7ea;
+  background-color: #eef5ff;
+  text-decoration: none;
+}
+
+.pagination .current {
+  font-weight: bold;
+  color: #004790;
+  background: #eef5ff;
+  border-color: #7ba7ea;
+}
+
+/* 버튼 */
+.board-buttons {
+  text-align: right;
+  margin: 10px 0;
+}
+
+.write-btn {
+  display: inline-block;
+  padding: 0 10px;
+  height: 21px;
+  line-height: 21px;
+  background-color: #7ba7ea;
+  color: white;
+  border: 1px solid #5b87c5;
+  border-radius: 2px;
+}
+
+.write-btn:hover {
+  background-color: #6a96d9;
+  text-decoration: none;
+}
+
+/* 푸터 */
+footer {
+  clear: both;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border-top: 1px solid #d5d5d5;
+  padding-top: 10px;
+  text-align: center;
+  color: #666;
+  font-size: 11px;
+}
+
+footer a {
+  color: #666;
+}
+
+/* 게시글 상세 스타일 (post.html용) */
+.post-view {
+  border-top: 2px solid #7ba7ea;
+  border-bottom: 2px solid #7ba7ea;
+  margin-bottom: 15px;
+}
+
+.post-header {
+  background-color: #eef5ff;
+  padding: 8px 10px;
+  border-bottom: 1px solid #b7c9e3;
+}
+
+.post-title {
+  font-weight: bold;
+  font-size: 13px;
+  color: #004790;
+  margin-bottom: 5px;
+}
+
+.post-info {
+  font-size: 11px;
+  color: #666;
+}
+
+.post-info span {
+  margin-right: 10px;
+}
+
+.post-content {
+  padding: 15px 10px;
+  min-height: 200px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.post-content p {
+  margin-bottom: 1em;
+}
+
+.post-content img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  padding: 3px;
+  margin: 5px 0;
+}
+
+.post-buttons {
+  padding: 10px 0;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.post-button {
+  display: inline-block;
+  padding: 0 8px;
+  height: 21px;
+  line-height: 21px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 11px;
+  margin-left: 5px;
+}
+
+.post-button:hover {
+  background-color: #eef5ff;
+  border-color: #7ba7ea;
+  text-decoration: none;
+}
+
+/* 댓글 영역 스타일 */
+.comments-area {
+  margin-top: 20px;
+}
+
+.comment-row {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.comment-header {
+  margin-bottom: 5px;
+  font-size: 11px;
+}
+
+.comment-author {
+  color: #004790;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.comment-date {
+  color: #666;
+}
+
+.comment-body {
+  padding: 5px 0 5px 10px;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* 댓글 내 이미지 크기 제한 */
+.comment-body img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 2px;
+  margin: 3px 0;
+}
+
+.no-comments {
+  padding: 15px 10px;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+}
+
+.comment-title {
+  width: 100%;
+  font-weight: bold;
+}
+
+/* 본문 내 코드 블록 스타일 수정 */
+.post-content pre {
+  margin: 10px 0;
+  padding: 8px;
+  background-color: #f7f7f7;
+  border: 1px solid #cccccc;
+  font-family: 'Courier New', 'Gulim', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  overflow-x: auto;
+  position: relative; /* 복사 버튼 위치 지정을 위한 상대 위치 설정 */
+}
+
+/* 코드 복사 버튼 스타일 */
+.code-copy-button {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  padding: 2px 6px;
+  background-color: #7ba7ea;
+  color: white;
+  border: 1px solid #5b87c5;
+  border-radius: 2px;
+  font-family: 'Dotum', '돋움', sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+.code-copy-button:hover {
+  opacity: 1;
+}
+
+.code-copy-feedback {
+  position: absolute;
+  top: 3px;
+  right: 60px;
+  padding: 2px 6px;
+  background-color: #009900;
+  color: white;
+  border-radius: 2px;
+  font-family: 'Dotum', '돋움', sans-serif;
+  font-size: 11px;
+  display: none;
+  z-index: 10;
+}
+
+.post-content code {
+  font-family: 'Courier New', 'Gulim', monospace;
+  color: #000066;
+  padding: 1px 3px;
+  font-size: 12px;
+}
+
+.post-content a {
+  color: #004790;
+  text-decoration: underline;
+}
+
+/* 마크다운 스타일 2005년 네이버 카페 스타일로 수정 */
+.post-content h1, .post-content h2, .post-content h3, .post-content h4 {
+  font-family: 'Gulim', '굴림', sans-serif;
+  color: #004790;
+  margin: 15px 0 8px 0;
+  background-color: #eef5ff;
+  padding: 3px 8px;
+  border-top: 1px solid #b7c9e3;
+  border-bottom: 1px solid #b7c9e3;
+  letter-spacing: -1px;
+  clear: both;
+}
+
+.post-content h1 { font-size: 16px; }
+.post-content h2 { font-size: 15px; }
+.post-content h3 { font-size: 14px; }
+.post-content h4 { font-size: 13px; }
+
+.post-content strong, .post-content b {
+  font-weight: bold;
+  color: #333;
+  padding: 0 2px;
+}
+
+.post-content em, .post-content i {
+  color: #007700;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.post-content ul, .post-content ol {
+  margin: 10px 0 10px 25px;
+}
+
+.post-content ul li, .post-content ol li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.post-content blockquote {
+  margin: 10px 0;
+  padding: 7px 10px 7px 10px;
+  background-color: #f8f8f8;
+  border-left: 3px solid #7ba7ea;
+  color: #555;
+}
+
+/* blockquote 내부의 마지막 p 태그 하단 마진 제거 */
+.post-content blockquote p:last-child,
+.comment-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* blockquote 내부의 첫 번째 p 태그 상단 마진 제거 */
+.post-content blockquote p:first-child,
+.comment-body blockquote p:first-child {
+  margin-top: 0;
+}
+
+.post-content img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  padding: 3px;
+  background-color: #fff;
+}
+
+.post-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px 0;
+  border: 2px solid #b7c9e3;
+}
+
+.post-content th {
+  background-color: #eef5ff;
+  padding: 5px;
+  border: 1px solid #b7c9e3;
+  color: #004790;
+  font-weight: normal;
+}
+
+.post-content td {
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px dashed #b7c9e3;
+  height: 1px;
+  background-color: transparent;
+  margin: 15px 0;
+}
+
+/* 댓글 영역 마크다운 스타일도 동일하게 적용 */
+.comment-body h1, .comment-body h2, .comment-body h3, .comment-body h4 {
+  font-family: 'Gulim', '굴림', sans-serif;
+  color: #004790;
+  margin: 10px 0 5px 0;
+  background-color: #eef5ff;
+  padding: 2px 6px;
+  border-top: 1px solid #b7c9e3;
+  border-bottom: 1px solid #b7c9e3;
+  letter-spacing: -1px;
+  font-size: 12px;
+  clear: both;
+}
+
+.comment-body p {
+  margin: 5px 0;
+}
+
+.comment-body a {
+  color: #004790;
+  text-decoration: underline;
+}
+
+.comment-body strong, .comment-body b {
+  font-weight: bold;
+  color: #333;
+  padding: 0 2px;
+}
+
+.comment-body em, .comment-body i {
+  color: #007700;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.comment-body ul, .comment-body ol {
+  margin: 5px 0 5px 20px;
+}
+
+.comment-body code {
+  font-family: 'Courier New', 'Gulim', monospace;
+  color: #000066;
+  padding: 1px 2px;
+  font-size: 11px;
+}
+
+.comment-body pre {
+  margin: 5px 0;
+  padding: 6px;
+  background-color: #f7f7f7;
+  border: 1px solid #cccccc;
+  font-family: 'Courier New', 'Gulim', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  overflow-x: auto;
+}
+
+.comment-body blockquote {
+  margin: 5px 0;
+  padding: 5px 8px 5px 8px;
+  background-color: #f8f8f8;
+  border-left: 2px solid #7ba7ea;
+  color: #555;
+  font-size: 11px;
+}
+
+.comment-body img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 2px;
+  background-color: #fff;
+}
+
+.comment-body hr {
+  border: none;
+  border-top: 1px dashed #b7c9e3;
+  height: 1px;
+  background-color: transparent;
+  margin: 15px 0;
+}
+
+/* 검색 상자 스타일 */
+.search-box {
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.search-box input[type="text"] {
+  width: 200px;
+  height: 22px;
+  border: 1px solid #ccc;
+  padding: 0 5px;
+  font-size: 12px;
+  font-family: 'Dotum', '돋움', 'Arial', sans-serif;
+  vertical-align: middle;
+}
+
+.search-box button {
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #5b87c5;
+  background-color: #7ba7ea;
+  color: white;
+  font-size: 12px;
+  font-family: 'Dotum', '돋움', 'Arial', sans-serif;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.search-box button:hover {
+  background-color: #6a96d9;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 주소복사 버튼 스타일 */
+.share-button {
+  display: inline-block;
+  padding: 0 8px;
+  height: 21px;
+  line-height: 21px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 11px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.share-button:hover {
+  background-color: #eef5ff;
+  border-color: #7ba7ea;
+  text-decoration: none;
+}
+
+.copied-message {
+  font-size: 11px;
+  color: #009900;
+  margin-left: 5px;
+  display: none;
+}
+
+/* 반응형 디자인 (모바일 지원) */
+@media (max-width: 800px) {
+  .cafe-container {
+    width: 100%;
+    border: none;
+    padding: 5px;
+  }
+  
+  .board-header {
+    display: none;
+  }
+  
+  .board-row {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 0;
+    position: relative;
+  }
+  
+  .subject {
+    width: 100%;
+    padding: 0 0 5px 0;
+    font-weight: bold;
+  }
+  
+  .writer {
+    padding-left: 5px;
+    text-align: left;
+  }
+  
+  .date {
+    padding-left: 5px;
+  }
+  
+  .num, .view-count {
+    display: none;
+  }
+}
+
+/* 이미지 모달 전체화면 스타일 */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-top: 30px;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+#modalCaption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+  font-size: 12px;
+  font-family: 'Dotum', '돋움', sans-serif;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 모바일 대응 */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 90%;
+  }
+}
