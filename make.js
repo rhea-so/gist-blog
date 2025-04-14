@@ -16,6 +16,14 @@ if (!GITHUB_TOKEN) {
   process.exit(1);
 }
 
+// 날짜 형식을 YYYY-MM-DD로 변환하는 함수
+function formatDateToYYYYMMDD(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 // config.json에서 설정 불러오기
 async function loadConfig() {
   try {
@@ -183,8 +191,8 @@ async function getGistContent(post) {
                 avatar_url: comment.user.avatar_url,
                 html_url: comment.user.html_url,
               },
-              created_at: new Date(comment.created_at).toLocaleDateString(),
-              updated_at: new Date(comment.updated_at).toLocaleDateString(),
+              created_at: formatDateToYYYYMMDD(new Date(comment.created_at)),
+              updated_at: formatDateToYYYYMMDD(new Date(comment.updated_at)),
               body: marked.parse(fixBrokenUnicode(comment.body)),
               html_url: comment.html_url,
             }));
@@ -370,7 +378,7 @@ async function generateBlog() {
             ...post,
             summary,
             firstImage: content.firstImage,
-            formattedDate: post.createdAt.toLocaleDateString(),
+            formattedDate: formatDateToYYYYMMDD(post.createdAt),
             comments_count: content.comments_count,
             postNumber: postNumber,
           };
@@ -426,7 +434,7 @@ async function generateBlog() {
           post: {
             ...post,
             content: content.html,
-            formattedDate: post.createdAt.toLocaleDateString(),
+            formattedDate: formatDateToYYYYMMDD(post.createdAt),
             comments: content.comments,
             comments_count: content.comments_count,
           },
